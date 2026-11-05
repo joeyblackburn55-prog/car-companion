@@ -47,7 +47,7 @@ object Eq {
         this.bass = clamp(bass); this.voices = clamp(voices); this.treble = clamp(treble)
     }
 
-    fun setEnabled(on: Boolean) {
+    fun switchOn(on: Boolean) {
         enabled = on
         if (on) Engine.start() else Engine.stop()
         Prefs.saveEq()
@@ -59,9 +59,9 @@ object Eq {
     }
 
     /** Called continuously while dragging; [Prefs.saveEq] is called when the finger lifts. */
-    fun setBass(v: Float) { bass = clamp(v); Engine.apply() }
-    fun setVoices(v: Float) { voices = clamp(v); Engine.apply() }
-    fun setTreble(v: Float) { treble = clamp(v); Engine.apply() }
+    fun changeBass(v: Float) { bass = clamp(v); Engine.apply() }
+    fun changeVoices(v: Float) { voices = clamp(v); Engine.apply() }
+    fun changeTreble(v: Float) { treble = clamp(v); Engine.apply() }
 
     private fun clamp(v: Float) = Math.round(v.coerceIn(-LEVEL_MAX, LEVEL_MAX)).toFloat()
 }

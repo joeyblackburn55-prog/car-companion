@@ -21,7 +21,7 @@ fun SoundScreen() {
     Column(Modifier.fillMaxSize()) {
         Title("Sound") {
             Text(if (on) "On" else "Off", color = CP.Text2, fontSize = 18.sp, modifier = Modifier.padding(end = 18.dp))
-            BigSwitch(on) { Eq.setEnabled(it) }
+            BigSwitch(on) { Eq.switchOn(it) }
         }
 
         Column(Modifier.alpha(if (on) 1f else 0.4f)) {
@@ -46,11 +46,11 @@ fun SoundScreen() {
 
             // Three simple sliders
             Tile(Modifier.fillMaxWidth()) {
-                SliderRow("Bass", "Deep sound, drums", Eq.bass, on) { Eq.setBass(it) }
+                SliderRow("Bass", "Deep sound, drums", Eq.bass, on) { Eq.changeBass(it) }
                 Separator()
-                SliderRow("Voices", "Singer, podcasts, calls", Eq.voices, on) { Eq.setVoices(it) }
+                SliderRow("Voices", "Singer, podcasts, calls", Eq.voices, on) { Eq.changeVoices(it) }
                 Separator()
-                SliderRow("Treble", "Clarity, cymbals", Eq.treble, on) { Eq.setTreble(it) }
+                SliderRow("Treble", "Clarity, cymbals", Eq.treble, on) { Eq.changeTreble(it) }
             }
 
             Spacer(Modifier.height(18.dp))
