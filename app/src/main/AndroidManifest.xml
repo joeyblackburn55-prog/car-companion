@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <!-- Sound -->
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <!-- Maintenance: count kilometres with the head unit's GPS -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    <!-- Background service + reminders + auto-start -->
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
         android:label="@string/app_name"
-        android:icon="@android:drawable/ic_menu_manage"
+        android:icon="@android:drawable/ic_menu_compass"
         android:theme="@android:style/Theme.Material.NoActionBar">
 
         <activity
@@ -17,6 +24,7 @@
             android:exported="true"
             android:launchMode="singleTask"
             android:screenOrientation="sensorLandscape"
+            android:windowSoftInputMode="adjustResize"
             android:configChanges="orientation|screenSize|screenLayout|keyboardHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,17 +32,16 @@
             </intent-filter>
         </activity>
 
-        <!-- Holds the equalizer on the global output (session 0) so it stays active behind ZLink / Bluetooth -->
+        <!-- Keeps the equalizer on and counts kilometres while other apps (ZLink...) are on screen -->
         <service
-            android:name=".EqService"
+            android:name=".CompanionService"
             android:exported="false"
-            android:foregroundServiceType="specialUse">
+            android:foregroundServiceType="specialUse|location">
             <property
                 android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
                 android:value="Applies a user-controlled audio equalizer to the device's global audio output" />
         </service>
 
-        <!-- Turns the EQ back on when the head unit starts -->
         <receiver
             android:name=".BootReceiver"
             android:exported="true">

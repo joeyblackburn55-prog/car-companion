@@ -4,14 +4,14 @@ plugins {
     id("org.jetbrains.kotlin.plugin.compose")
 }
 android {
-    namespace = "com.carcompanion.eq"
+    namespace = "com.carcompanion.app"
     compileSdk = 35
     defaultConfig {
-        applicationId = "com.carcompanion.eq"
+        applicationId = "com.carcompanion.app"
         minSdk = 28
         targetSdk = 35
-        versionCode = 2
-        versionName = "0.2"
+        versionCode = 3
+        versionName = "1.0"
     }
     signingConfigs {
         // Fixed debug key committed on purpose so every CI build can update the previous install.
@@ -29,6 +29,7 @@ dependencies {
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.foundation:foundation")
     implementation("androidx.compose.material3:material3")
+    implementation("androidx.compose.material:material-icons-core")
     implementation("androidx.activity:activity-compose:1.9.3")
     implementation("androidx.core:core-ktx:1.15.0")
 }
