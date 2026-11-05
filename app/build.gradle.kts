@@ -4,14 +4,14 @@ plugins {
     id("org.jetbrains.kotlin.plugin.compose")
 }
 android {
-    namespace = "com.carcompanion.probe"
+    namespace = "com.carcompanion.eq"
     compileSdk = 35
     defaultConfig {
-        applicationId = "com.carcompanion.probe"
+        applicationId = "com.carcompanion.eq"
         minSdk = 28
         targetSdk = 35
-        versionCode = 1
-        versionName = "0.1-probe"
+        versionCode = 2
+        versionName = "0.2"
     }
     signingConfigs {
         // Fixed debug key committed on purpose so every CI build can update the previous install.
