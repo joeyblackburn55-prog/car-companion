@@ -15,6 +15,18 @@ A CarPlay-style companion app for my Android head unit
   engine oil, transmission oil (also feeds the front diff), rear diff, coolant, brake & clutch fluid,
   power steering fluid, tire rotation, engine and cabin air filters. Every value is editable.
 
+## Status
+**V1.0 – closed (Nov 5, 2026).** Installed on the head unit and working. Now in real-road testing before V2.
+
+### Road-test checklist
+- [ ] EQ comes back on by itself after a full head unit restart (car off overnight)
+- [ ] EQ stays on during a long drive with ZLink / CarPlay
+- [ ] EQ works on Bluetooth music from the phone
+- [ ] Km counted by GPS match the dashboard odometer after a few drives (note the difference)
+- [ ] Maintenance reminder notification shows up when an item gets close
+- [ ] Everything readable and easy to tap while parked, day and night
+- [ ] Maintenance intervals checked against the owner's manual
+
 ## V2 (needs an OBD-II Bluetooth adapter)
 - **Diagnostics** – read and clear Check Engine codes, explained in plain English.
 - **Gauges** – live speed, RPM, boost, temperatures, battery voltage.
